@@ -4,8 +4,8 @@
 class Mdserver < Formula
   desc "local server for markdown files"
   homepage "https://github.com/sschlesier/mdserver"
-  url "https://github.com/sschlesier/mdserver/releases/download/v1.0.0/mdserver-macos-arm64"
-  sha256 "587c9ef4ccd4b469802cdfde7d265c4b8d659996f1e0425db63357d7c2a24d08"
+  url "https://github.com/sschlesier/mdserver/releases/download/v1.1.0/mdserver-macos-arm64"
+  sha256 "141c278161a2e29b9745eaad29aa46c4998bf82134136f62d73e76d092170820"
   license "MIT"
 
   # depends_on "cmake" => :build
@@ -21,6 +21,6 @@ class Mdserver < Formula
   end
 
   test do
-    assert_match "v1.0.0", shell_output("#{bin}/mdserver --version")
+    assert_match "v1.1.0", shell_output("#{bin}/mdserver --version")
   end
 end
