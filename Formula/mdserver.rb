@@ -1,7 +1,8 @@
 class Mdserver < Formula
-  desc "A lightweight, modern Go replacement for markserv that quickly serves Markdown content as HTML"
+  desc "Lightweight Go replacement for markserv, quickly serves Markdown as HTML"
   homepage "https://github.com/sschlesier/mdserver"
-  version "v1.2.0"
+  version "1.2.0"
+  revision "1"
   license "MIT"
 
   livecheck do
@@ -35,7 +36,7 @@ class Mdserver < Formula
     else
       Hardware::CPU.arm? ? "mdserver-linux-arm64" : "mdserver-linux-amd64"
     end
-    
+
     bin.install binary_name => "mdserver"
   end
 
