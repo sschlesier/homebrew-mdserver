@@ -1,26 +1,46 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://docs.brew.sh/rubydoc/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class Mdserver < Formula
-  desc "local server for markdown files"
+  desc "A lightweight, modern Go replacement for markserv that quickly serves Markdown content as HTML"
   homepage "https://github.com/sschlesier/mdserver"
-  url "https://github.com/sschlesier/mdserver/releases/download/v1.1.0/mdserver-macos-arm64"
-  sha256 "141c278161a2e29b9745eaad29aa46c4998bf82134136f62d73e76d092170820"
+  version "1.1.0"
+  revision 1
   license "MIT"
 
-  # depends_on "cmake" => :build
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
-  # Additional dependency
-  # resource "" do
-  #   url ""
-  #   sha256 ""
-  # end
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/sschlesier/mdserver/releases/download/v1.1.0/mdserver-macos-arm64"
+      sha256 "PLACEHOLDER_SHA256_ARM64"
+    else
+      url "https://github.com/sschlesier/mdserver/releases/download/v1.1.0/mdserver-macos-amd64"
+      sha256 "PLACEHOLDER_SHA256_AMD64"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/sschlesier/mdserver/releases/download/v1.1.0/mdserver-linux-arm64"
+      sha256 "PLACEHOLDER_SHA256_LINUX_ARM64"
+    else
+      url "https://github.com/sschlesier/mdserver/releases/download/v1.1.0/mdserver-linux-amd64"
+      sha256 "PLACEHOLDER_SHA256_LINUX_AMD64"
+    end
+  end
 
   def install
-    bin.install "mdserver-macos-arm64" => "mdserver"
+    binary_name = if OS.mac?
+      Hardware::CPU.arm? ? "mdserver-macos-arm64" : "mdserver-macos-amd64"
+    else
+      Hardware::CPU.arm? ? "mdserver-linux-arm64" : "mdserver-linux-amd64"
+    end
+    
+    bin.install binary_name => "mdserver"
   end
 
   test do
-    assert_match "v1.1.0", shell_output("#{bin}/mdserver --version")
+    system "#{bin}/mdserver", "--version"
   end
 end
