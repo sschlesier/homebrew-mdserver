@@ -2,7 +2,6 @@ class Mdserver < Formula
   desc "Lightweight Go replacement for markserv, quickly serves Markdown as HTML"
   homepage "https://github.com/sschlesier/mdserver"
   version "1.3.0"
-  revision "1"
   license "MIT"
 
   livecheck do
