@@ -1,7 +1,7 @@
 class Mdserver < Formula
   desc "Lightweight Go replacement for markserv, quickly serves Markdown as HTML"
   homepage "https://github.com/sschlesier/mdserver"
-  version "1.3.2"
+  version "2.0.0"
   license "MIT"
 
   livecheck do
@@ -11,21 +11,21 @@ class Mdserver < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/sschlesier/mdserver/releases/download/v1.3.2/mdserver-macos-arm64"
-      sha256 "7162ff13f77689f6fe07f37afc6a9a651aaa8cf25acb3dab5369fef934d8dd46"
+      url "https://github.com/sschlesier/mdserver/releases/download/v2.0.0/mdserver-macos-arm64"
+      sha256 "e88bd830de6b175b08bd28f9ad8b362e40d92f219cfe0cf1edf66fe389e9070d"
     else
-      url "https://github.com/sschlesier/mdserver/releases/download/v1.3.2/mdserver-macos-amd64"
-      sha256 "b3366933cbbd1e602d9e472948ba2d5506e8634850aa858c2a890a117d6178c3"
+      url "https://github.com/sschlesier/mdserver/releases/download/v2.0.0/mdserver-macos-amd64"
+      sha256 "60e92fcd1b996e313eb92ba146ed1f2e0619a11fa3cc8e13b7961f1dde329c8d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/sschlesier/mdserver/releases/download/v1.3.2/mdserver-linux-arm64"
-      sha256 "b27cf88a88dd2d48c5cbfd3145179ac99d576ec853695559c19f3d29829b5a4d"
+      url "https://github.com/sschlesier/mdserver/releases/download/v2.0.0/mdserver-linux-arm64"
+      sha256 "eb064870add770df6ac5977219f8d8ec55010de5a515fdcc30f8f62f0c616267"
     else
-      url "https://github.com/sschlesier/mdserver/releases/download/v1.3.2/mdserver-linux-amd64"
-      sha256 "d751b8b3fc80e6b6e229999e3e3314e8d71c5411e8a3c7407f6564687b26938c"
+      url "https://github.com/sschlesier/mdserver/releases/download/v2.0.0/mdserver-linux-amd64"
+      sha256 "776082de4432a5f67e82e789e6d096000bb8b4f34ffc6185f4166b724ad10565"
     end
   end
 
